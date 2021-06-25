@@ -1,6 +1,22 @@
 # My_Learning_DeFi
 My learning about DeFi
 
+## Protocol
+### Bancor
+
+### Uniswap
+* [Introducing Uniswap V3](https://uniswap.org/blog/uniswap-v3/) 
+* [Whitepaper v3](https://uniswap.org/whitepaper-v3.pdf)
+* [Whitepaper v2](https://uniswap.org/whitepaper.pdf)
+* [Whitepaper v1](https://hackmd.io/@HaydenAdams/HJ9jLsfTz)
+* [An analysis of Uniswap markets](https://web.stanford.edu/~guillean/papers/uniswap_analysis.pdf)
+* [Contracts v1](https://github.com/Uniswap/uniswap-v1)
+* [Contracts v2](https://github.com/Uniswap/uniswap-v2-core)
+* [Contracts v3](https://github.com/Uniswap/uniswap-v3-core)
+* [Documentation v3](https://docs.uniswap.org/)
+* [Documentation v3](https://docs.uniswap.org/V2/concepts/protocol-overview/01-how-uniswap-works)
+* [Documentation v1](https://docs.uniswap.org/V1/concepts/frontend-integration/01-connect-to-uniswap)
+
 ## Education
 * Uniswap forked out of Bancor.
 * Bancor algorithm has been used in 
