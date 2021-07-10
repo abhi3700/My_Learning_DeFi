@@ -20,6 +20,7 @@ My learning about DeFi
 ### Frax
 * It's not an AMM based protocol, but algorithmic stablecoin.
 * [Frax: Fractional-Algorithmic Stablecoin Protocol](https://docs.frax.finance/)
+* [How arbitrage keeps FRAX price-stable](https://docs.frax.finance/price-stability)
 
 
 ## Education
@@ -109,3 +110,4 @@ k is a fixed constant, which is the pool's total liquidity always has to remain 
 * [What is DEFI? Decentralized Finance Explained (Ethereum, MakerDAO, Compound, Uniswap, Kyber)](https://youtu.be/k9HYC0EJU6E)
 * [DEX/AMM Live Chat with Balancer, Bancor and Curve](https://youtu.be/FZSM8RUMLus)
 * [What Is IMPERMANENT LOSS? DEFI Explained - Uniswap, Curve, Balancer, Bancor](https://www.youtube.com/watch?v=8XJ1MSTEuU0)
+* [UNISWAP V3 EXPLAINED](https://www.youtube.com/watch?v=3u4Prz-EkPM)
