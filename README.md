@@ -17,6 +17,11 @@ My learning about DeFi
 * [Documentation v3](https://docs.uniswap.org/V2/concepts/protocol-overview/01-how-uniswap-works)
 * [Documentation v1](https://docs.uniswap.org/V1/concepts/frontend-integration/01-connect-to-uniswap)
 
+### Frax
+* It's not an AMM based protocol, but algorithmic stablecoin.
+* [Frax: Fractional-Algorithmic Stablecoin Protocol](https://docs.frax.finance/)
+
+
 ## Education
 * Uniswap forked out of Bancor.
 * Bancor algorithm has been used in 
@@ -33,6 +38,7 @@ My learning about DeFi
 	- Anyone can trade trustlessly
 	- Anyone can provide fund (also called liquidity) to a liquidity pool. Hence, they can be market maker on exchange. In return, they earn fees for providing liquidity. 
 * An AMM is a type of decentralized exchange (DEX) protocol that relies on a mathematical formula to price assets. Instead of using an order book like a traditional exchange, assets are priced according to a pricing algorithm.
+* The basic AMM works as a series of pools of two assets (say, ETH, the foundational currency of the Ethereum blockchain,  and DAI, an Ethereum token designed to hold its value against the U.S. dollar). The price offered by the AMM does not reference the external world. In the simplest form, it’s just a function of the ratio of the two assets. So if there were 1 ETH in the pool and 2,000 DAI, 1 DAI would cost 0.0005 ETH and 1 ETH would cost 2,000 DAI.
 
 #### AMM Formula
 * Uniswap - [Whitepaper](https://hackmd.io/C-DvwDSfSxuh-Gd4WKE_ig)
@@ -48,6 +54,21 @@ k is a fixed constant, which is the pool's total liquidity always has to remain 
 ```
 * Other AMMs will use other formulas for the specific use cases they target. The similarity between all of them, however, is that they determine the prices algorithmically.
 * Traditional market making usually works with firms with vast resources and complex strategies. Market makers help you get a good price and tight bid-ask spread on an order book exchange like Binance. Automated market makers decentralize this process and let essentially anyone create a market on a blockchain.
+
+### Impermanent Loss
+* Temporary loss of funds in providing liquidity.
+* Why temporary/impermanent?
+	- the moment, the price (in centralized exchanges) value comes back to the original price, there is no loss then.
+* Suppose, there is a pool with a pair of tokens `X-Y`. Now, a person provides liquidity of `X` & is issued with tokens Y. Now, let's say the price of `X` in the centralized exchanges like Coinbase increase, compared to the Pool price of `X`. Suppose, the price of `X` in pool is `500 USD` & in exchanges it's `550 USD`, then the person would incur a loss. This is called "Impermanent Loss". Now, all the platforms who has these pools, ensure that the market maker (people who provides liquidity) get more incentives (a portion of the fees collected from borrowers). Watch [this](https://www.youtube.com/watch?v=8XJ1MSTEuU0)
+
+### Concentrated Liquidity
+* Introduced in Uniswap V3
+* The liquidity provider has the choice to part provide liquidity of the token in a specific price range.
+
+### Oracle
+* Used in Bancor v2, Uniswap V3
+* It is to adjust the balancer weights to give closer price compared to real-world price (in exchanges).
+* It is introduced in many protocols to reduce the Impermanent Loss.
 
 ### Glossary
 * liquidity: used in place of 'fund'
@@ -87,3 +108,4 @@ k is a fixed constant, which is the pool's total liquidity always has to remain 
 * [A Short Story of UNISWAP and UNI Token. DEFI Explained](https://youtu.be/LpjMgS4OVzs)
 * [What is DEFI? Decentralized Finance Explained (Ethereum, MakerDAO, Compound, Uniswap, Kyber)](https://youtu.be/k9HYC0EJU6E)
 * [DEX/AMM Live Chat with Balancer, Bancor and Curve](https://youtu.be/FZSM8RUMLus)
+* [What Is IMPERMANENT LOSS? DEFI Explained - Uniswap, Curve, Balancer, Bancor](https://www.youtube.com/watch?v=8XJ1MSTEuU0)
