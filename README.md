@@ -104,6 +104,7 @@ k is a fixed constant, which is the pool's total liquidity always has to remain 
 * [“I Want To Explain DeFi To My Parents” by Anthony Albertorio](https://link.medium.com/i9kdMdJWqeb)
 * [“Diving into Real World DeFi” by Andy Singleton](https://link.medium.com/APvM1hxXqeb)
 * [Uniswap: A Good Deal for Liquidity Providers?](https://pintail.medium.com/uniswap-a-good-deal-for-liquidity-providers-104c0b6816f2)
+* [Liquidity Pools Explained](https://finematics.com/liquidity-pools-explained/)
 
 ### Videos
 * [A Short Story of UNISWAP and UNI Token. DEFI Explained](https://youtu.be/LpjMgS4OVzs)
