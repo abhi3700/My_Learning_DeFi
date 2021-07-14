@@ -66,15 +66,20 @@ k is a fixed constant, which is the pool's total liquidity always has to remain 
 * Introduced in Uniswap V3
 * The liquidity provider has the choice to part provide liquidity of the token in a specific price range.
 
+### Flash Loans
+
+### Liquidity Pool
+* Each pool has 2 tokens. The first Liquidity Provider in a pool has to deposit `1:1` tokens. 
+
 ### Oracle
 * Used in Bancor v2, Uniswap V3
 * It is to adjust the balancer weights to give closer price compared to real-world price (in exchanges).
 * It is introduced in many protocols to reduce the Impermanent Loss.
 
 ### Glossary
-* liquidity: used in place of 'fund'
-* market maker: funder who can deposit money into liquidity pool
-* liquidity pool: money collected
+* Liquidity: used in place of 'fund'
+* Market Maker or Liquidity Pool: funder who can deposit money into liquidity pool
+* Liquidity Pool: paird of tokens collected
 
 ## References
 ### Blogs
