@@ -73,6 +73,9 @@ k is a fixed constant, which is the pool's total liquidity always has to remain 
 ### Liquidity Pool
 * Each pool has 2 tokens. The first Liquidity Provider in a pool has to deposit `1:1` tokens. 
 
+### Slippage
+* [Watch this](https://www.youtube.com/watch?v=BgR75biSjzU)
+
 ### Oracle
 * Used in Bancor v2, Uniswap V3
 * It is to adjust the balancer weights to give closer price compared to real-world price (in exchanges).
