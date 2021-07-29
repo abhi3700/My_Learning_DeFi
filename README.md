@@ -18,15 +18,17 @@ My learning about DeFi
 * [Documentation v3](https://docs.uniswap.org/)
 * [Documentation v3](https://docs.uniswap.org/V2/concepts/protocol-overview/01-how-uniswap-works)
 * [Documentation v1](https://docs.uniswap.org/V1/concepts/frontend-integration/01-connect-to-uniswap)
+* In return (profit), traders pay a _fee_ to the pool, distributed among Liquidity Provider(s) according to their shares.
 
 ### Frax
-* It's not an AMM based protocol, but algorithmic stablecoin.
+* It's not an AMM based __DEX__, but algorithmic stablecoin __asset__.
 * [Frax: Fractional-Algorithmic Stablecoin Protocol](https://docs.frax.finance/)
 * [How arbitrage keeps FRAX price-stable](https://docs.frax.finance/price-stability)
 
 
 ## Education
-* Uniswap forked out of Bancor.
+* Bancor laid the foundation of AMM.
+* Uniswap came after Bancor & a better version than the later by 10x reduction in gas consumption.
 * Bancor algorithm has been used in 
 	- EOSIO RAM market to decide the RAM price. RAM <-> EOS
 	- my project TOE (A decentralized Ride sharing platform) to decide the Rides' price. RIDEX <-> EOS
@@ -42,6 +44,7 @@ My learning about DeFi
 	- Anyone can provide fund (also called liquidity) to a liquidity pool. Hence, they can be market maker on exchange. In return, they earn fees for providing liquidity. 
 * An AMM is a type of decentralized exchange (DEX) protocol that relies on a mathematical formula to price assets. Instead of using an order book like a traditional exchange, assets are priced according to a pricing algorithm.
 * The basic AMM works as a series of pools of two assets (say, ETH, the foundational currency of the Ethereum blockchain,  and DAI, an Ethereum token designed to hold its value against the U.S. dollar). The price offered by the AMM does not reference the external world. In the simplest form, it’s just a function of the ratio of the two assets. So if there were 1 ETH in the pool and 2,000 DAI, 1 DAI would cost 0.0005 ETH and 1 ETH would cost 2,000 DAI.
+
 
 #### AMM Formula
 * Uniswap - [Whitepaper](https://hackmd.io/C-DvwDSfSxuh-Gd4WKE_ig)
