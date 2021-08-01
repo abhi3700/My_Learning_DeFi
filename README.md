@@ -35,6 +35,19 @@ My learning about DeFi
 	- [ ] my DeFi project - Cropfi (Stake ur tokens to earn more).
 * Liquidity provider: who adds funds into the Liquidity Pool to earn fees from trades in the Swap Pool and also savings interest income. [Source](https://www.binance.com/en-IN/support/articles/dc8f28e7a98d4534ad3db88d351200fb)
 
+### CeFi
+* Buyers are interested to buy any stocks/cryptos for the lowest price possible, while seller tries to get the maximum price for their stocks or crypto. Now, these trades get locked in the order book, where the consensus on price is required from both parties to get the trade executed.
+* So there can be a situation where the consensus never happens and trades never get executed for a longer period of time, why because there are not enough takers and also due to a liquidity crunch in the exchange.
+
+### DeFi
+* Decentralized Finance or DeFi is a digtial revolution that leverages decentralized networks to transform our old & ailing financial system into trustless and transparent protocols that run without any third party custodians or intermiediary.
+* Some of the concepts driving these:
+	- Yield Farming
+	- Crypto Staking
+	- Crypto lending
+	- Crypto Borrowing
+	- Liquidity Pool
+
 ### Automated Market Maker (AMM)
 * A robot that always quotes price b/w 2 assets using 
 	- __simple__ formula like in Uniswap while 
@@ -74,7 +87,25 @@ k is a fixed constant, which is the pool's total liquidity always has to remain 
 ### Flash Loans
 
 ### Liquidity Pool
-* Each pool has 2 tokens. The first Liquidity Provider in a pool has to deposit `1:1` tokens. 
+* It is a reservoir of crypto funds mostly in pairs, which works based on the smart contract rules , facilitating user to engage in decentralized, permissionless trading, lending, borrowing activities and in turns getting rewards in the form of the crypto.
+* Each pool has mostly 2 tokens. The first Liquidity Provider in a pool has to initiate with deposit `1:1` tokens.
+* Basically, liquidity pools contain two assets. As a provider you fund a set amount of both. By adding, you are given a share of the pool. The total amount you provide to the pool increases your share. For instance, if you provide 1000 DAI and 2.5 ETH, your share of the pool may be 5%, whereas someone who provides 50 DAI and 0.02 ETH may only have 0.01%.
+* Each time the pool is in use, a fee is taken and distributed to all owners of the pool. The greater your pool share, the bigger cut of the fee. This process incentivizes providers to stay long term keeping the pool healthy, and in turn stabilizes the asset.
+* Supplying liquidity through Uniswap is done via a smart contract. In return for your addition you are given pool tokens. At any time you can withdraw your shares, returning your pool tokens to take back your assets. Note: adding or removing funds costs gas, so make sure it counts.
+* The proportions of the tokens lying in the Liquidity Pool controls the price of assets in consideration. For example, when you buy ETH from the DAI/ETH pool, the supply of ETH is reduced from the pool, and the supply of DAI is increased proportionally. This will increase the price of ETH and decrease the price of DAI.
+* Risks:
+	- A bank run may occur for a single asset, which creates supply imbalance. For example, if ETH were to hard fork and drop to 0, everyone would want DAI. Traders would swap out all of their ETH for DAI, and the providers would be left with only ETH unless they remove themselves from the pool prior to the run.
+	- The value of one asset may be rising at a volatile rate and as a provider you want to remove your pool share to cash in. When you go to remove the share you find you have more of the other asset. Taking it out of the pool at that time could cause a loss.
+* [How to add liquidity to Uniswap --- "Adding Liquidity to a Pool"](https://www.publish0x.com/cryptocurrency-ideas/tutorials-becoming-a-liquidity-provider-with-uniswap-xzyzljg)
+
+#### Withdrawal Fee
+* An early withdrawal penalty is charged for withdrawals before an expiry. This is to discourage competitive LP withdrawals ahead of an options expiry. This early withdrawal fee will be applied after the potential claim reserve is deducted. It is calculated according to the following:
+[Source](https://docs.divergence-protocol.com/redemption)
+	- `0` if no options have been sold since the open, or if LP uses the "expiry exit".
+	- `sqrt(1-t) * (1%)`, where t = `(expiryTimestamp − currentTimestamp) / timePeriod` 
+	- `1%` penalty cap
+
+#### Yield Farming with LP Tokens
 
 ### Slippage
 * [Watch this](https://www.youtube.com/watch?v=BgR75biSjzU)
@@ -88,6 +119,8 @@ k is a fixed constant, which is the pool's total liquidity always has to remain 
 * Liquidity: used in place of 'fund'
 * Market Maker or Liquidity Pool: funder who can deposit money into liquidity pool
 * Liquidity Pool: paird of tokens collected
+* [More](https://www.gemini.com/cryptopedia/explore#de-fi)
+
 
 ## References
 ### Blogs
@@ -118,6 +151,9 @@ k is a fixed constant, which is the pool's total liquidity always has to remain 
 * [“Diving into Real World DeFi” by Andy Singleton](https://link.medium.com/APvM1hxXqeb)
 * [Uniswap: A Good Deal for Liquidity Providers?](https://pintail.medium.com/uniswap-a-good-deal-for-liquidity-providers-104c0b6816f2)
 * [Liquidity Pools Explained](https://finematics.com/liquidity-pools-explained/)
+* [What Are Automated Market Makers?](https://www.gemini.com/cryptopedia/amm-what-are-automated-market-makers#section-automated-market-maker-variations)
+* [Impermanent Loss in Decentralized Finance](https://www.gemini.com/cryptopedia/decentralized-finance-impermanent-loss-defi)
+* [How Liquidity Provider (LP) Tokens Work](https://www.gemini.com/cryptopedia/liquidity-provider-amm-tokens)
 
 ### Videos
 * [A Short Story of UNISWAP and UNI Token. DEFI Explained](https://youtu.be/LpjMgS4OVzs)
