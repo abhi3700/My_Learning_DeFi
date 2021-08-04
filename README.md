@@ -40,6 +40,7 @@ My learning about DeFi
 * So there can be a situation where the consensus never happens and trades never get executed for a longer period of time, why because there are not enough takers and also due to a liquidity crunch in the exchange.
 
 ### DeFi
+* DeFi = Blockchain + Finance + Economics
 * Decentralized Finance or DeFi is a digtial revolution that leverages decentralized networks to transform our old & ailing financial system into trustless and transparent protocols that run without any third party custodians or intermiediary.
 * Some of the concepts driving these:
 	- Yield Farming
@@ -47,7 +48,6 @@ My learning about DeFi
 	- Crypto lending
 	- Crypto Borrowing
 	- Liquidity Pool
-
 ### Automated Market Maker (AMM)
 * A robot that always quotes price b/w 2 assets using 
 	- __simple__ formula like in Uniswap while 
@@ -57,6 +57,48 @@ My learning about DeFi
 	- Anyone can provide fund (also called liquidity) to a liquidity pool. Hence, they can be market maker on exchange. In return, they earn fees for providing liquidity. 
 * An AMM is a type of decentralized exchange (DEX) protocol that relies on a mathematical formula to price assets. Instead of using an order book like a traditional exchange, assets are priced according to a pricing algorithm.
 * The basic AMM works as a series of pools of two assets (say, ETH, the foundational currency of the Ethereum blockchain,  and DAI, an Ethereum token designed to hold its value against the U.S. dollar). The price offered by the AMM does not reference the external world. In the simplest form, it’s just a function of the ratio of the two assets. So if there were 1 ETH in the pool and 2,000 DAI, 1 DAI would cost 0.0005 ETH and 1 ETH would cost 2,000 DAI.
+* History:
+	- The concept of AMM used in Uniswap (constant product market maker) has already been studied for over a decade. Refer [this](./docs/papers/AMM_Theory_Practice.pdf)
+	- It has been used in prediction markets.
+	- Other AMM appoaches:
+		+ logarithmic rule used in prediction markets - [Augur v1](https://augur.mystrikingly.com/blog/augur-s-automated-market-maker-the-ls-lmsr) & [Gnosis](https://gnosis-pm-js.readthedocs.io/en/v1.3.0/lmsr-primer.html)
+		+ Information aggregators based
+			- [Bayesian market makers](http://www.eecs.harvard.edu/cs286r/courses/fall12/papers/bmm-ec.pdf)
+			- [dynamic pari-mutuel market makers](https://www.researchgate.net/publication/279714212_A_dynamic_pari-mutuel_market_for_hedging_wagering_and_information_aggregation)
+* "constant product market maker" is also called "constant function market makers" (CFMMs).
+* Bonding curve: relationship between price & token supply.
+* CFMMs: relationship between 2 or more tokens.
+* Compound uses non-CFMM because the interest rate is dynamic based on the utilization ration and the goal is not to keep the interest rate constant.
+
+#### CFMM
+* The term “constant function” refers to the fact that any trade must change the reserves in such a way that the product of those reserves remains unchanged (i.e. equal to a constant).
+* CFMMs typically have three participants:
+	- Traders: Exchange one asset for another asset.
+	- Liquidity providers (LPs): Willingly accept trades against their portfolio in exchange for a fee.
+	- Arbitrageurs: Maintain the price of assets within that portfolio in accordance with the market price in exchange for a profit.
+* CFMMs are often used for secondary market trading and tend to accurately reflect, as a result of arbitrage, the price of individual assets on reference markets. For example, if the CFMM price is less than the reference market price, arbitrageurs will buy the asset on the CFMM and sell it on an order book-based exchange for a profit.
+* A constant product function forms a hyperbola when plotting two assets, which has a desirable property of always having liquidity as prices approach infinity on both sides of the spectrum.
+
+![CFMM Chart](./img/cfmm_chart.png)
+
+* A constant product market maker, first implemented by Uniswap, satisfies the equation:
+![CFMM formula](./img/cfmm_formula.png)
+
+Where R_α and R_β are reserves of each asset and γ is the transaction fee. Trading any amount of either asset must change the reserves in such a way that, when the fee is zero, the product `R_α * R_β` remains equal to the constant `k`.
+
+* This is often simplified in the form of `x*y=k`, where x and y are the reserves of each asset.
+* In practice, because Uniswap charges a 0.3% trading fee that is added to reserves, each trade actually increases k.
+
+#### Constant Sum Market Makers (CSMM)
+* A constant sum market maker is a relatively straightforward implementation of a constant function market maker, satisfying the equation:
+![CSMM Formula](./img/csmm_formula.png)
+
+Where R_i are the reserves of each asset and k is a constant. 
+
+* While this function produces “zero slippage”, it does not provide infinite liquidity and thus is likely unfit as a standalone implementation for a decentralized exchange use-case.
+* A constant sum function forms a straight line when plotting two assets, resulting in the equation `x+y=k`.
+![CSMM Chart](./img/csmm_chart.png)
+
 
 
 #### AMM Formula
@@ -154,6 +196,7 @@ k is a fixed constant, which is the pool's total liquidity always has to remain 
 * [What Are Automated Market Makers?](https://www.gemini.com/cryptopedia/amm-what-are-automated-market-makers#section-automated-market-maker-variations)
 * [Impermanent Loss in Decentralized Finance](https://www.gemini.com/cryptopedia/decentralized-finance-impermanent-loss-defi)
 * [How Liquidity Provider (LP) Tokens Work](https://www.gemini.com/cryptopedia/liquidity-provider-amm-tokens)
+* [Constant Function Market Makers: DeFi’s “Zero to One” Innovation](https://medium.com/bollinger-investment-group/constant-function-market-makers-defis-zero-to-one-innovation-968f77022159)
 
 ### Videos
 * [A Short Story of UNISWAP and UNI Token. DEFI Explained](https://youtu.be/LpjMgS4OVzs)
