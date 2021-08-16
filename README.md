@@ -88,6 +88,16 @@ Where R_α and R_β are reserves of each asset and γ is the transaction fee. Tr
 
 * This is often simplified in the form of `x*y=k`, where x and y are the reserves of each asset.
 * In practice, because Uniswap charges a 0.3% trading fee that is added to reserves, each trade actually increases k.
+* Pros:
+	- __all-time liquidity__: It can provide liquidity no matter how large the order size is or how small the liquidity pool is. While larger orders tend to suffer from excess slippage, the system never has to worry about running out of liquidity. It will literally always work.
+* Cons:
+	- __slippage__: is the difference between the expected price of a trade and the price at which the trade is executed. This can be solved by having a large reserve i.e. large value of constant. In this way, the orders should get bigger and bigger so that the slippage is considerable. large order => larger chance of slippage.
+	- __Impermanent Loss__: the difference b/w the external market price & pool's price. Suppose, there is a pool with tokens - `ETH : DAI` | `10:1000`, then ETH price is 100 USD, but suppose, the reserve is now `8.17: 1224` after some liquidity movement, still the product is `10000`. In the 2nd case, the price is `150 USD`. Hence, the `$50` in profit is lost to the liquidity provider. Naturally, if the price returned to $100 again, everything would rebalance. That is why this phenomenon is known as impermanent loss. Without a doubt, it is one of the most uncomfortable problems of the Uniswap system. Nobody likes to provide liquidity in exchange for losing value.
+```
+ETH : DAI
+1. 10 1000 -> 10000, ==> 1 ETH = 100 USD
+2. 8.17 1224 -> 10000, ==> 1 ETH = 150 USD
+``` 
 
 #### Constant Sum Market Makers (CSMM)
 * A constant sum market maker is a relatively straightforward implementation of a constant function market maker, satisfying the equation:

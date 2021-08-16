@@ -3,6 +3,13 @@
 * trade ETH with ERC20 & vice versa.
 * The Uniswap [factory contract](https://github.com/Uniswap/uniswap-v1/blob/master/contracts/uniswap_factory.vy) can be used to create exchange contracts for any ERC20 token that does not already have one. It also functions as a registry of ERC20 tokens that have been added to the system, and the exchange with which they are associated.
 * The factory contract can be instantiated using the factory address and ABI: For more, click [here](https://docs.uniswap.org/protocol/V1/guides/connect-to-uniswap)
+* In this version, in order to get a trade b/w DAI to USDC:
+	1. DAI to ETH
+	1. ETH to USDC
+
+## v2
+* In this version, in order to get a trade b/w DAI to USDC:
+	1. DAI to USDC
 
 ## References
 * [Uniswap Tutorial for Developers (Solidity & Javascript)](https://www.youtube.com/watch?v=0Im5iaYoz1Y)
