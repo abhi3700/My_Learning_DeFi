@@ -174,6 +174,19 @@ k is a fixed constant, which is the pool's total liquidity always has to remain 
 * [More](https://www.gemini.com/cryptopedia/explore#de-fi)
 
 
+## Development
+### Storage
+* In DeFi smart contracts, the data is stored on-chain for data persistence required for financial computations.
+* But, this can be achieved by either of the two ways:
+	1. Minimalistic storage with loops during calculations like average price.
+	2. Maximalistic storage with no use of loops during such calculations as the count, & the total amount is also stored.
+* In both the methods there are cons. As a matter of fact, the 2nd method is normally chosen.
+* But, this has led to expensive scenarios like Chainlink paying 100k USD as gas fees per day.
+* In order to avoid this, off-chain storage could be a solution, but it is not secure as the data won't be immutable.
+* Hence, there is a new upcoming solution provided by Arweave Blockchain. This has permanent storage. And fetching data from here is absolute free without any API key requirement. The fee is paid one-time which gives storage for almost 100 years. The data (like price) is stored via Arweave smart contracts.
+* Have a look at how to access the price [here](./libs/redstone).
+
+
 ## References
 ### Blogs
 * [Automated Market Maker (AMM)](https://academy.binance.com/en/articles/what-is-an-automated-market-maker-amm)
