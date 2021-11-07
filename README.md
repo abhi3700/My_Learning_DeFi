@@ -170,8 +170,9 @@ k is a fixed constant, which is the pool's total liquidity always has to remain 
 ### Glossary
 * Liquidity: used in place of 'fund'
 * Market Maker or Liquidity Pool: funder who can deposit money into liquidity pool
-* Liquidity Pool: paird of tokens collected
+* Liquidity Pool (LP): paird of tokens collected
 * [More](https://www.gemini.com/cryptopedia/explore#de-fi)
+* Liquidity Providers (LPs): addresses providing liquidity to pool reserves.
 
 
 ## Development
