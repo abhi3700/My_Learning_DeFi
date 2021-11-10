@@ -136,7 +136,7 @@ k is a fixed constant, which is the pool's total liquidity always has to remain 
 * Introduced in Uniswap V3
 * The liquidity provider has the choice to part provide liquidity of the token in a specific price range.
 
-### Flash Loans
+### [Flash Loans](./docs/flashloan.md)
 
 ### Liquidity Pool
 * It is a reservoir of crypto funds mostly in pairs, which works based on the smart contract rules , facilitating user to engage in decentralized, permissionless trading, lending, borrowing activities and in turns getting rewards in the form of the crypto.
