@@ -1,5 +1,7 @@
 # Uniswap
-## v1
+
+## Versions
+### v1
 ![](../img/uniswap_v1_contract_overview.png)
 
 * has a series of ETH-ERC20 exchange contracts. 1 exchange contract per ERC20 token. 
@@ -20,7 +22,7 @@
 * Fees:
 	- liquidity provider fee (0.3%) to reward the LPs
 
-## v2
+### v2
 * The major drawback with the Uniswap v1 was the “ETH bridging” problem, i.e., the absence of ERC20-ERC20 token pools. This resulted in escalated costs and high slippage when a user wants to swap one ERC20 token.
 * v2 solved the problem by introducing ERC20-ERC20 pools.
 * In v2, a trade b/w DAI to USDC can directly happen.
@@ -30,8 +32,29 @@
 
 * protocol fee or admin fee is introduced in v2 other than the LPs' fee. This is 0.05% of total LPs fee (0.3%).
 
-## v3
+### v3
 
+
+## Coding
+* UniswapV2 contracts are divided into 
+	- __core contracts__: implements the complete functions of UniswapV2 (creating trading pairs, liquidity supply, trading tokens, price oracles, etc.)
+		+ Factory contract: The token registers & the exchange contract is generated.
+		+ Exchange contract
+		+ Pair (or Pool) contract
+ 	- __peripheral contracts__: are used to make it more convenient for users to interact with the core contract in a user-friendly way.
+* The price of token w.r.t another token is calculated on-chain within the smart contract ([example](https://github.com/abhi3700/evm_contracts_defiavgprice)), not off-chain.
+* Calculate the price based on `xy = k` [Source](https://www.youtube.com/watch?v=IL7cRj5vzEU)
+```
+(x + dx)(y - dy) = k
+dy = y - k/(x + dx)
+dy = (xy + ydx - k)/(x + dx)
+dy = (xy + ydx - xy)/(x + dx)
+dy = ydx/( x + dx)
+
+If the trading fee is `0.3%` => remaining dx becomes `0.997 * dx`
+
+dy = y * 0.997 * dx/(x + 0.997 * dx)
+```
 
 ## References
 * [Uniswap Tutorial for Developers (Solidity & Javascript)](https://www.youtube.com/watch?v=0Im5iaYoz1Y)
@@ -40,3 +63,4 @@
 * [Fork Uniswap & Create Your Own Sushiswap | Full Tutorial](https://www.youtube.com/watch?v=U3fTTqHy7F4)
 * [Developer walks you through the code of Uniswap V3](https://www.youtube.com/watch?v=WCLsIcjLSXc)
 * [A Graphical Guide for Understanding Uniswap](https://docs.ethhub.io/guides/graphical-guide-for-understanding-uniswap/)
+* [The ultimate guide to use Uniswap](https://defitutorials.substack.com/p/the-ultimate-guide-to-uniswap)
