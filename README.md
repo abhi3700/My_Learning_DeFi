@@ -190,6 +190,8 @@ k is a fixed constant, which is the pool's total liquidity always has to remain 
 
 ## References
 ### Blogs
+
+* [A Mathematical View of Automated Market Maker (AMM) Algorithms and Its Future](https://medium.com/anchordao-lab/automated-market-maker-amm-algorithms-and-its-future-f2d5e6cc624a)
 * [Automated Market Maker (AMM)](https://academy.binance.com/en/articles/what-is-an-automated-market-maker-amm)
 * [Impermanent Loss Explained](https://academy.binance.com/en/articles/impermanent-loss-explained)
 * [Curve Finance in DeFi](https://academy.binance.com/en/articles/what-is-curve-finance-in-defi)
