@@ -11,6 +11,7 @@
 - The Uniswap [factory contract](https://github.com/Uniswap/uniswap-v1/blob/master/contracts/uniswap_factory.vy) can be used to create exchange contracts for any ERC20 token that does not already have one. It also functions as a registry of ERC20 tokens that have been added to the system, and the exchange with which they are associated.
 - The factory contract can be instantiated using the factory address and ABI: For more, click [here](https://docs.uniswap.org/protocol/V1/guides/connect-to-uniswap)
 - In this version, in order to get a trade b/w DAI to USDC:
+
   1.  DAI to ETH
   2.  ETH to USDC
 
@@ -23,7 +24,10 @@
   - Minting: Pool tokens are minted when liquidity is deposited into the system
   - Burning: Pool tokens can be burned at any time to withdraw a proportional share of the reserves. These LP tokens can then be staked or burned to redeem rewards. A 0.3% trading fee is incurred to reward the liquidity providers.
 - Fees:
+
   - liquidity provider fee (0.3%) to reward the LPs
+
+- In return (profit), traders pay a _fee_ to the pool, distributed among Liquidity Provider(s) according to their shares.
 
 ---
 
@@ -68,6 +72,22 @@ dy = y * 0.997 * dx/(x + 0.997 * dx)
 ```
 
 ## References
+
+### Blogs
+
+- [Introducing Uniswap V3](https://uniswap.org/blog/uniswap-v3/)
+- [Whitepaper v3](https://uniswap.org/whitepaper-v3.pdf)
+- [Whitepaper v2](https://uniswap.org/whitepaper.pdf)
+- [Whitepaper v1](https://hackmd.io/@HaydenAdams/HJ9jLsfTz)
+- [An analysis of Uniswap markets](https://web.stanford.edu/~guillean/papers/uniswap_analysis.pdf)
+- [Contracts v1](https://github.com/Uniswap/uniswap-v1)
+- [Contracts v2](https://github.com/Uniswap/uniswap-v2-core)
+- [Contracts v3](https://github.com/Uniswap/uniswap-v3-core)
+- [Documentation v3](https://docs.uniswap.org/)
+- [Documentation v3](https://docs.uniswap.org/V2/concepts/protocol-overview/01-how-uniswap-works)
+- [Documentation v1](https://docs.uniswap.org/V1/concepts/frontend-integration/01-connect-to-uniswap)
+
+### Videos
 
 - [Uniswap Tutorial for Developers (Solidity & Javascript)](https://www.youtube.com/watch?v=0Im5iaYoz1Y)
 - [How to set the token price in a liquidity pool? (Uniswap, Pancake)](https://www.youtube.com/watch?v=yzdh5RRWxAk)
