@@ -30,7 +30,7 @@ get all the pair SCs in array.A check of non-zero address for 1 (smaller) token 
 ![](../../img/uniswap_sc_factory_2.png)
 ![](../../img/uniswap_sc_factory_7.png)
 
-> NOTE: Additionally `checkContract()` function can be run in order to check if the contract really exist.
+> NOTE: Additionally `checkContract()` function can be run in order to check if the token contract(s) really exist.
 
 > Here, comparo b/w address is done by first converting hexadecimal to decimal & then comparison.
 
