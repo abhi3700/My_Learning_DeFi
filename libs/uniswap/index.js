@@ -1,3 +1,9 @@
+/* 
+  Source: https://docs.uniswap.org/sdk/2.0.0/guides/quick-start
+  
+  Execution:
+  $ node index.js
+*/
 const {
   ChainId,
   Fetcher,
