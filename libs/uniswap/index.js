@@ -1,5 +1,6 @@
 /* 
   Source: https://docs.uniswap.org/sdk/2.0.0/guides/quick-start
+  YT: https://www.youtube.com/watch?v=0Im5iaYoz1Y
   
   Execution:
   $ node index.js
@@ -39,8 +40,12 @@ const fetch_dai_eth = async () => {
   console.log(`DAI: ${dai.address}`);
   console.log("-".repeat(45));
 
+  // create a pair
   const pair = await Fetcher.fetchPairData(dai, weth, customHttpProvider);
+  // fetch from route
   const route = new Route([pair], weth);
+
+  // to get execution price
   const trade = new Trade(
     route,
     new TokenAmount(weth, "100000000000000000"),
