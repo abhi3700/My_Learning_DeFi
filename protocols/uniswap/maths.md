@@ -27,4 +27,32 @@ There are 2 scenarios where this k can behave differently:
 
 E.g. `x` and `y` are the reserves of the tokens in the pool. For example, if you are swapping `DAI` for `WETH`, you are interacting with the `DAI/WETH` smart contract pool. The total amount of `DAI` that the contract holds would be `x`, and the total amount of `WETH` would be `y`.
 
+- Calculate the amount of output tokens based on `xy = k`. [Source](https://www.youtube.com/watch?v=IL7cRj5vzEU)
+
+```console
+// without trading/swap fee
+(x + dx)(y - dy) = k
+or, (x + dx)(y - dy) = xy  [as k remains constant during swap]
+
+dy = y - xy/(x + dx)
+dy = (xy + ydx - xy)/(x + dx)
+dy = ydx/( x + dx)
+
+//-----
+// with trading/swap fee
+// Here, r = 1 - swap_fee = 1 - (0.3/1000) = 0.997
+(x + rdx)(y - dy) = k
+or, (x + dx)(y - dy) = xy  [as k remains constant during swap]
+
+dy = y - xy/(x + rdx)
+dy = (xy + yrdx - xy)/(x + rdx)
+dy = yrdx/( x + rdx)
+
+//-----
+E.g.
+If the trading fee is `0.3%` => remaining dx becomes `0.997 * dx`
+
+dy = y * 0.997 * dx/(x + 0.997 * dx)
+```
+
 2. **Provide Liquidity**:

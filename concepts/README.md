@@ -150,6 +150,7 @@ k is a fixed constant, which is the pool's total liquidity always has to remain 
 ## Slippage
 
 - [Watch this](https://www.youtube.com/watch?v=BgR75biSjzU)
+- The larger the liquidity pool (in terms of token reserves), the lesser is the price slippage.
 
 ## Oracle
 

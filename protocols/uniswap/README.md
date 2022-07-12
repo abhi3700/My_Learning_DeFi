@@ -52,24 +52,10 @@
 
 - UniswapV2 contracts are divided into
   - **core contracts**: implements the complete functions of UniswapV2 (creating trading pairs, liquidity supply, trading tokens, price oracles, etc.)
-    - Factory contract: The token registers & the exchange contract is generated.
-    - Exchange contract
+    - Factory contract: The token registers & the exchange/pair contract is generated.
     - Pair (or Pool) contract
   - **peripheral contracts**: are used to make it more convenient for users to interact with the core contract in a user-friendly way.
 - The price of token w.r.t another token is calculated on-chain within the smart contract ([example](https://github.com/abhi3700/evm_contracts_defiavgprice)), not off-chain.
-- Calculate the price based on `xy = k` [Source](https://www.youtube.com/watch?v=IL7cRj5vzEU)
-
-```
-(x + dx)(y - dy) = k
-dy = y - k/(x + dx)
-dy = (xy + ydx - k)/(x + dx)
-dy = (xy + ydx - xy)/(x + dx)
-dy = ydx/( x + dx)
-
-If the trading fee is `0.3%` => remaining dx becomes `0.997 * dx`
-
-dy = y * 0.997 * dx/(x + 0.997 * dx)
-```
 
 ## References
 
@@ -84,8 +70,18 @@ dy = y * 0.997 * dx/(x + 0.997 * dx)
 - [Contracts v2](https://github.com/Uniswap/uniswap-v2-core)
 - [Contracts v3](https://github.com/Uniswap/uniswap-v3-core)
 - [Documentation v3](https://docs.uniswap.org/)
-- [Documentation v3](https://docs.uniswap.org/V2/concepts/protocol-overview/01-how-uniswap-works)
+- [Documentation v2](https://docs.uniswap.org/V2/concepts/protocol-overview/01-how-uniswap-works)
 - [Documentation v1](https://docs.uniswap.org/V1/concepts/frontend-integration/01-connect-to-uniswap)
+- Programming DeFi: Uniswap Series
+  - v1
+    - [part 1](https://jeiwan.net/posts/programming-defi-uniswap-1/)
+    - [part 2](https://jeiwan.net/posts/programming-defi-uniswap-2/)
+    - [part 3](https://jeiwan.net/posts/programming-defi-uniswap-3/)
+  - v2
+    - [part 1](https://jeiwan.net/posts/programming-defi-uniswapv2-1/)
+    - [part 2](https://jeiwan.net/posts/programming-defi-uniswapv2-2/)
+    - [part 3](https://jeiwan.net/posts/programming-defi-uniswapv2-3/)
+    - [part 4](https://jeiwan.net/posts/programming-defi-uniswapv2-4/)
 
 ### Videos
 
