@@ -4,7 +4,7 @@
 
 ### v1
 
-![](../../img/uniswap_v1_contract_overview.png)
+![Uniswap v1 contract overview](../../img/uniswap_v1_contract_overview.png)
 
 - has a series of ETH-ERC20 exchange contracts. 1 exchange contract per ERC20 token.
 - trade ETH with ERC20 & vice versa.
@@ -12,8 +12,8 @@
 - The factory contract can be instantiated using the factory address and ABI: For more, click [here](https://docs.uniswap.org/protocol/V1/guides/connect-to-uniswap)
 - In this version, in order to get a trade b/w DAI to USDC:
 
-  1.  DAI to ETH
-  2.  ETH to USDC
+  1. DAI to ETH
+  2. ETH to USDC
 
 - Provide liquidity: it requires depositing an equivalent value of both ETH and the relevant ERC20 token.
 - Exchange rate: The token price is determined via "constant product" market making formula which sets the exchange rate based off

@@ -55,7 +55,7 @@ Watch [this](https://www.youtube.com/watch?v=Xbf-QFjZZ_g) video for 'AMM Intro'.
 
 ### CFMM
 
-- The term “constant function” refers to the fact that any trade must change the reserves in such a way that the product of those reserves remains unchanged (i.e. equal to a constant).
+- The term “constant function” refers to the fact that any trade must change the reserves in such a way that the product of those reserves remains unchanged (i.e. equal to a constant) during trading/swap.
 - CFMMs typically have three participants:
   - Traders: Exchange one asset for another asset.
   - Liquidity providers (LPs): Willingly accept trades against their portfolio in exchange for a fee.
@@ -78,7 +78,7 @@ Where R*α and R*β are reserves of each asset and γ is the transaction fee. Tr
   - **slippage**: is the difference between the expected price of a trade and the price at which the trade is executed. This can be solved by having a large reserve i.e. large value of constant. In this way, the orders should get bigger and bigger so that the slippage is considerable. large order => larger chance of slippage.
   - **Impermanent Loss**: the difference b/w the external market price & pool's price. Suppose, there is a pool with tokens - `ETH : DAI` | `10:1000`, then ETH price is 100 USD, but suppose, the reserve is now `8.17: 1224` after some liquidity movement, still the product is `10000`. In the 2nd case, the price is `150 USD`. Hence, the `$50` in profit is lost to the liquidity provider. Naturally, if the price returned to $100 again, everything would rebalance. That is why this phenomenon is known as impermanent loss. Without a doubt, it is one of the most uncomfortable problems of the Uniswap system. Nobody likes to provide liquidity in exchange for losing value.
 
-```
+```console
 ETH : DAI
 1. 10 1000 -> 10000, ==> 1 ETH = 100 USD
 2. 8.17 1224 -> 10000, ==> 1 ETH = 150 USD
@@ -99,7 +99,7 @@ Where R_i are the reserves of each asset and k is a constant.
 
 - Uniswap - [Whitepaper](https://hackmd.io/C-DvwDSfSxuh-Gd4WKE_ig)
 
-```
+```console
 x * y = k
 
 where,
@@ -162,6 +162,6 @@ k is a fixed constant, which is the pool's total liquidity always has to remain 
 
 - Liquidity: used in place of 'fund'
 - Market Maker or Liquidity Pool: funder who can deposit money into liquidity pool
-- Liquidity Pool (LP): paird of tokens collected
+- Liquidity Pool (LP): pair of tokens collected
 - [More](https://www.gemini.com/cryptopedia/explore#de-fi)
 - Liquidity Providers (LPs): addresses providing liquidity to pool reserves.
