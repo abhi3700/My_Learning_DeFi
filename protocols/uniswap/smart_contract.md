@@ -1,19 +1,34 @@
 # Uniswap v2 SC
 
-This is about the elements of Uniswap v2 SC.
+This is about the elements of Uniswap **v2** SC.
 
-- A binary SC system: core + periphery.
-- Core SC:
-  - pair SC creation
-  - protocol implementation
-  - swap, mint, burn of LP tokens
-- Periphery SC: to interact with the protocol
-  - swap
-  - add/remove liquidity
+- **Uniswapv2 SC Suite**
+
+```mermaid
+flowchart TB
+    Uniswapv2_SC_suite --> Core --> Factory_SC & Pair_SC & ERC20_Token
+    Uniswapv2_SC_suite --> Periphery --> Router_SC
+```
+
+- **Core**:
+  - **Factory SC**: creates pair contracts & keep tracks of all pair contracts.
+  - **Pair SC**: implements mint/burn functions for LP tokens, swap of tokens.
+  - **ERC20 Token**: Each pool has its individual pool token to keep track of ownership for the LPs.
+- **Periphery**:
+  - **Router SC**: This is a periphery SC which is used to interact with the core contracts. If required, the contract can be updated with new code deployed at a new address. There are 2 advantages associated with this:
+    - If there is a trading of `USDC/DAI` & if there is no liquidity pool for this pair, but each token has a pool with `wETH`. In this case, the router contract would automatically make the trade of `USDC->wETH` & then `wETH->DAI`.
+    - If the trader wants to send Ether directly to Router for getting a coin, the contract automatically takes care of the wETH part. Otherwise, if the trader has to interact directly with a pair contract (e.g. ETH/USDC), then wrapped Ether (ERC20) has to traded with for the required coin.
+
+Below is the actual (recommended) workflow for the **Trader** & **LPs**:
+
+```mermaid
+flowchart LR
+    Liquidity_Provider & Trader --> Router_SC --> Pair_SC-1 & Pair_SC-2 & Pair_SC-3 & ... & Pair_SC-n
+```
 
 ---
 
-**Uniswap Factory**
+## Factory
 
 Handles 2 things:
 
@@ -42,3 +57,10 @@ Constructor with `feeToSetter` param
 
 `feeToSetter` can change `feeTo` & `feeToSetter` addresses.
 ![](../../img/uniswap_sc_factory_6.png)
+
+---
+
+## Pair
+
+Import files: lib, interface, contract
+![](../../img/uniswap_sc_pair_1.png)

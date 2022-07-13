@@ -41,8 +41,18 @@
 > NOTE: ETH is not a ERC20 standard compatible token.
 
 - protocol fee or admin fee is introduced in v2 other than the LPs' fee. This is 0.05% of total LPs fee (0.3%).
+- Functionalities that Uniswap v2 provides:
+  - Managing the funds (how tokens such as Dogecoin and Shiba are managed in the pool)
+  - Functions for liquidity providers — deposit more funds and withdraw the funds along with the rewards
+  - Managing pool ownership tokens
+  - **Protocol fee** — Uniswap v2 introduced a switchable protocol fee. This protocol fee goes to the Uniswap team for their efforts in maintaining Uniswap. At the moment, this protocol fee is turned off but it can be turned on in the future. When it’s on, the traders will still pay the same fee for trading but 1/6 of this fee will now go to the Uniswap team and the rest 5/6 will go to the liquidity providers as the reward for providing their funds.
+  - **Price oracle** — Uniswap tracks prices of tokens relative to each other and can be used as a price oracle for other smart contracts in the Ethereum ecosystem. Due to arbitrage (which we will learn about later in the article), Uniswap prices tend to closely follow the real market prices of tokens. So the Uniswap price oracle is a pretty good approximation of the real market prices.
+
+![uniswap v2 functionalities](../../img/uniswap_v2_functionalities.png)
 
 **[Maths](./maths.md)**
+
+**[Smart Contract](./smart_contract.md)**
 
 ---
 
@@ -72,6 +82,8 @@
 - [Documentation v3](https://docs.uniswap.org/)
 - [Documentation v2](https://docs.uniswap.org/V2/concepts/protocol-overview/01-how-uniswap-works)
 - [Documentation v1](https://docs.uniswap.org/V1/concepts/frontend-integration/01-connect-to-uniswap)
+- [Uniswap Smart Contract Breakdown part 1](https://betterprogramming.pub/uniswap-smart-contract-breakdown-ea20edf1a0ff)
+- [Uniswap Smart Contract Breakdown part 2](https://betterprogramming.pub/uniswap-smart-contract-breakdown-part-2-b9ea2fca65d1)
 - Programming DeFi: Uniswap Series
   - v1
     - [part 1](https://jeiwan.net/posts/programming-defi-uniswap-1/)
