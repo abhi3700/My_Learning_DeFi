@@ -67,6 +67,18 @@
   - **peripheral contracts**: are used to make it more convenient for users to interact with the core contract in a user-friendly way.
 - The price of token w.r.t another token is calculated on-chain within the smart contract ([example](https://github.com/abhi3700/evm_contracts_defiavgprice)), not off-chain.
 
+## FAQs
+
+#### Q. Why the LP tokens' name is hardcoded?
+
+#### A.
+
+**Uniswap** has decided to set the **same** name for all LP token contracts (i.e. pair contracts).
+
+This approach puts more emphasis on the **actual pair token addresses**, rather than **names**.
+
+If the pair creator is allowed to give a custom name for the LP token for a pair, a dishonest creator could create a custom token named USDT into a pair (USDT-ETH), and lure users who won't check the token address into selling their ETH for an otherwise worthless token (instead of the "real" USDT).
+
 ## References
 
 ### Blogs

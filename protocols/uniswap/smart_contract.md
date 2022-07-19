@@ -60,7 +60,58 @@ Constructor with `feeToSetter` param
 
 ---
 
+## LP Token (ERC20)
+
+Each Uniswap V2 Pair contract instance extends on their own ERC20 implementation. This ERC20 is the Liquidity Provider token that you get in exchange for the provided underlying reserve tokens.
+
+Amount of the LP token is calculated and minted within the Pair `mint()` function. Which is a low-level function not used directly from their UI. The Uniswap UI calls the Router's `addLiquidity()`, which is a wrapper function handling both underlying token transfers and mint of the LP token.
+
+---
+
 ## Pair
 
 Import files: lib, interface, contract
 ![](../../img/uniswap_sc_pair_1.png)
+
+Contract Declaration:
+![](../../img/uniswap_sc_pair_2.png)
+
+- `kLast`: last value of 'k' when updated during providing liquidity. Based on this, the exchange rate (token1/token0) is calculated.
+
+  > NOTE: k remains constant during swap.
+
+This is what happens during swap:
+![](../../img/uniswap_sc_pair_6.png)
+
+- `MINIMUM_LIQUIDITY` is the min. amount of liquidity burned at 1st liquidity provision.
+- Here, `UniswapV2ERC20` is extended in order to incorporate managing pool ownership tokens. This contract inherits from `UniswapV2ERC20`, which provides the the ERC-20 functions for the liquidity tokens.
+- `SafeMath` is not needed anymore for `^0.8.0` compiler. UQ112xUQ112 is a library for supporting `float` no.s. The 1st `112` bits is for whole no. & the last `112` bits is for fractional part.
+
+Manage funds of the reserve tokens:
+![](../../img/uniswap_sc_pair_3.png)
+
+- So, here during swap, providing liquidity (add/remove), the token values are tracked in form of reserves.
+- And also, the token addresses are noted inside.
+- From the ERC20’s perspective, the Pair contract is just a regular user that can transfer and receive tokens, it has its own balance, etc.
+
+Management b/w 3 contracts: Pair, ERC20 tokens of reserve tokens
+![](../../img/uniswap_sc_pair_4.png)
+
+Now, the **Pair SC** use the 2 functions of ERC20 SC of reserve tokens:
+![](../../uniswap_sc_pair_5.png)
+
+The Pair contract calls ERC20’s functions such as `balanceOf` (with `owner=Pair contract’s address`) and `transfer` to manage the tokens. Instead, `_safeTransfer` function can be used with function signature like this:
+
+```solidity
+function _safeTransfer(
+    address token,
+    address to,
+    uint256 value
+) private {
+    (bool success, bytes memory data) = token.call(
+        abi.encodeWithSignature("transfer(address,uint256)", to, value)
+    );
+    if (!success || (data.length != 0 && !abi.decode(data, (bool))))
+        revert TransferFailed();
+}
+```
