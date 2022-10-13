@@ -81,6 +81,10 @@ If the pair creator is allowed to give a custom name for the LP token for a pair
 
 ## References
 
+### Books
+
+- [Uniswap v3 Book | backed by Uniswap Foundation](https://uniswapv3book.com/)
+
 ### Blogs
 
 - [Introducing Uniswap V3](https://uniswap.org/blog/uniswap-v3/)
