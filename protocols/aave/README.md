@@ -123,8 +123,9 @@ lendingPool.repay(asset, amount, interestRateMode, onBehalfOf);
 ### Flash loans
 
 - Flash loans are a special type of loan that allow users to borrow funds without collateral.
-- It all happens in 1 block.
+- It all happens in 1 block, also called One Block Borrows
 - Mostly developers require flash loans to perform arbitrage or to perform some other complex operations. So, very less GUI like furucombo, etc. provide flash loans.
+- [EIP-3156: Flash Loans](https://eips.ethereum.org/EIPS/eip-3156)
 
 ![](../../img/aave_flash_loan.png)
 
@@ -155,6 +156,10 @@ Code for flash loan contract:
 Code for executing flash loan:
 
 ![](../../img/aave_flash_loan-execution.png)
+
+---
+
+![](../../img/aave_flash_loan-workflow.png)
 
 ### Governance
 
@@ -188,10 +193,38 @@ Staking in governance:
 
 ![](../../img/aave_platform_integration-nft-aavegotchi.png)
 
+## Getting Started
+
+> Aave v3 used here.
+
+### Protocol
+
+### Flash loan
+
+1. Get faucets (DAI, USDC, USDT, LINK, [GoerliETH](https://goerlifaucet.com/)) for testnet from [here](https://app.aave.com/faucet/).
+   ![](../../img/aave_faucet.png)
+2. Sequence of steps:
+
+```mermaid
+sequenceDiagram
+  autonumber
+  participant EOA
+  participant CustomFlashLoan
+  Note right of CustomFlashLoan: has all the <br/> activities like arbitrage, <br/>collateralSwap, etc.
+  participant AavePoolSC
+
+  EOA ->> AavePoolSC: call `flashLoan()`/`flashLoanSimple()` function
+  AavePoolSC ->> CustomFlashLoan: transfer funds >> call executeOperation()
+```
+
 ## References
 
 - [Aave v3 contracts with The3D | Solidity Fridays](https://youtu.be/l5RKksbi8e8)
-- **SAME**:
+- All are **SAME**:
   - [Aave 101 for Devs](https://www.youtube.com/watch?v=pzVo1m_DK80) ✅
   - [Codeup 40: Aave v2 technical deep dive (featuring David Truong)](https://youtu.be/0gTMwmNdSRE) ✅
   - [Aave 101 for Developers [MarketMake] by ETHGlobal](https://www.youtube.com/watch?v=AMAMvKc-O2s) ✅
+- [Aave: Flash Loans and Credit Delegation in Depth [MarketMake]](https://www.youtube.com/watch?v=MsDfTx1VzYA)
+- [Flash Loan Arbitrage | Aave Flash Loan Tutorial | by Block Explorer](https://www.youtube.com/watch?v=PtMs8FZJhkU)
+- [Aave Liquidity Pool Tutorial | DeFi Liquidity Pools | Crypto passive income | | by Block Explorer](https://www.youtube.com/watch?v=qs4KK9zD_9U)
+- [Building in DeFi With Aave | freeCodeCamp — Lesson #10](https://www.youtube.com/watch?v=vgOnZkjifAs)
