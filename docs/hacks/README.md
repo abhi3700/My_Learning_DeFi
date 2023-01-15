@@ -2,4 +2,4 @@
 
 ## References
 
-* <https://www.damnvulnerabledefi.xyz/>
+- [Damn Vulnerable DeFi](https://www.damnvulnerabledefi.xyz)
