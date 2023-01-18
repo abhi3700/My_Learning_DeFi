@@ -217,6 +217,60 @@ sequenceDiagram
   AavePoolSC ->> CustomFlashLoan: transfer funds >> call executeOperation()
 ```
 
+```
+`AavePoolSC::flashLoan()` or `AavePoolSC::flashLoanSimple()` called by EOA
+- `transfer` requested amount of token to CustomFlashLoanSC
+- `transferFrom` requested amount of token from CustomFlashLoanSC (inclusive of fees)
+```
+
+```
+`CustomFlashLoanSC::executeOperation()` called by Aave flashloan SC
+- use borrowed fund & then make collateralSwap, Arbitrage via logic inside the function
+- `approve` borrowed token amount (inclusive of fees)
+```
+
+> No `transfer()` function has to be used inside `executeOperation()`, but just `approve()` the (requested + fees) amount of borrowed token. It is done by Aave flashloan SC.
+
+**Architecture**
+
+![](../../img/aave_flashloan_architecture.png)
+
+## Getting Started
+
+Steps:
+
+1. `npx hardhat`
+2. `npm i @aave/core-v3 dotenv`
+3. Add `PRIVATE_KEY`, `INFURA_GOERLI_ENDPOINT` values in `.env` file.
+4. Write code for `CustomFlashLoan` contract in `FlashLoan.sol` file.
+5. Write deploy script in `scripts/deployFlashLoan.js` file.
+6. Parse the **PoolAddressesProvider** SC address into deploy() function of script as a constructor parameter. [Reference](https://docs.aave.com/developers/deployed-contracts/v3-testnet-addresses).
+7. Build & deploy into Goerli testnet. Note down the address of `CustomFlashLoan` contract.
+8. Open the project folder in Remix IDE using `remixd` CLI tool via `$ remixd -s .`
+9. Change the environment in Remix IDE to **Injected Provider - Metamask**.
+10. Paste the deployed SC address like this & press the button <kbd>At Address</kbd>
+    ![](../../img/aave_flashloan_remixide_ataddress.png)
+11. Call `requestFlashLoan()` function from the deployed SC address with token address & amount.
+    ![](../../img/aave_flashloan_remixide_call_requestflashloan.png)
+12. Confirm the transaction in Metamask & then view the transaction hash in Goerli Etherscan.
+
+![](../../img/aave_flashloan_remixide.png)
+
+<u>Observations</u>:
+
+- **CustomFlashLoan** contract is deployed on Goerli testnet at `0x7738ea178B66ce6A385a8E2f6d1F245B54946B01`.
+- Aave's PoolAddressesProvider contract is `0xc4dCB5126a3AfEd129BC3668Ea19285A9f56D15D` on Goerli testnet. And this is used to get the address of Aave's flashloan contract using `getPool()` function. It is also used as a constructor parameter for deploying `CustomFlashLoan` contract.
+- Let's request 1000 USDC using `CustomFlashLoan::requestFlashLoan()` from the **PoolAddressesProvider** contract. So, as per the logic inside `executeOperation()` function, the amount owed would be pulled back by the Aave's Pool SC. E.g. if we request 1000 USDC, then 1000 USDC + 0.05% of 1000 USDC = 1000.5 USDC would be pulled back by the Aave's Pool SC.
+  > Here, there is no logic. Just receive & give it back with add-on fees. So, no profit made.
+- You can see the transaction [here](https://goerli.etherscan.io/tx/0xdc973178b28d3aec046fdd1066277efefd365339dc483cee5423cf5a9c1b476a).
+
+```
+From 0x1ee669290939f8a8864497af3bc83728715265ffTo 0x7738ea178b66ce6a385a8e2f6d1f245b54946b01 For 1,000 USDC (USDC)
+From 0x7738ea178b66ce6a385a8e2f6d1f245b54946b01To 0x1ee669290939f8a8864497af3bc83728715265ff For 1,000.5 USDC (USDC)
+```
+
+![](../../img/aave_flashloan_etherscan_erc20_txns.png)
+
 ## References
 
 - [Aave v3 contracts with The3D | Solidity Fridays](https://youtu.be/l5RKksbi8e8)
