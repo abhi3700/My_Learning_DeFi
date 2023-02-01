@@ -201,6 +201,8 @@ Staking in governance:
 
 ### Flash loan
 
+#### Example-1
+
 1. Get faucets (DAI, USDC, USDT, LINK, [GoerliETH](https://goerlifaucet.com/)) for testnet from [here](https://app.aave.com/faucet/).
    ![](../../img/aave_faucet.png)
 2. Sequence of steps:
@@ -260,6 +262,7 @@ Steps:
 
 - **CustomFlashLoan** contract is deployed on Goerli testnet at `0x7738ea178B66ce6A385a8E2f6d1F245B54946B01`.
 - Aave's PoolAddressesProvider contract is `0xc4dCB5126a3AfEd129BC3668Ea19285A9f56D15D` on Goerli testnet. And this is used to get the address of Aave's flashloan contract using `getPool()` function. It is also used as a constructor parameter for deploying `CustomFlashLoan` contract.
+- `POOL`: `0x1ee669290939f8a8864497af3bc83728715265ffTo` provided by the Aave's PoolAddressesProvider SC.
 - Let's request 1000 USDC using `CustomFlashLoan::requestFlashLoan()` from the **PoolAddressesProvider** contract. So, as per the logic inside `executeOperation()` function, the amount owed would be pulled back by the Aave's Pool SC. E.g. if we request 1000 USDC, then 1000 USDC + 0.05% of 1000 USDC = 1000.5 USDC would be pulled back by the Aave's Pool SC.
   > Here, there is no logic. Just receive & give it back with add-on fees. So, no profit made.
 - You can see the transaction [here](https://goerli.etherscan.io/tx/0xdc973178b28d3aec046fdd1066277efefd365339dc483cee5423cf5a9c1b476a).
@@ -270,6 +273,10 @@ From 0x7738ea178b66ce6a385a8e2f6d1f245b54946b01To 0x1ee669290939f8a8864497af3bc8
 ```
 
 ![](../../img/aave_flashloan_etherscan_erc20_txns.png)
+
+#### Example-2
+
+![](../../img/aave_flashloan_arbitrage_eg_2.png)
 
 ## References
 

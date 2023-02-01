@@ -98,7 +98,7 @@ Management b/w 3 contracts: Pair, ERC20 tokens of reserve tokens
 ![](../../img/uniswap_sc_pair_4.png)
 
 Now, the **Pair SC** use the 2 functions of ERC20 SC of reserve tokens:
-![](../../uniswap_sc_pair_5.png)
+![](../../img/uniswap_sc_pair_5.png)
 
 The Pair contract calls ERC20’s functions such as `balanceOf` (with `owner=Pair contract’s address`) and `transfer` to manage the tokens. Instead, `_safeTransfer` function can be used with function signature like this:
 

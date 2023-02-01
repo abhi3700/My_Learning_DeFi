@@ -68,3 +68,4 @@ My learning about DeFi
 - [UNISWAP V3 EXPLAINED](https://www.youtube.com/watch?v=3u4Prz-EkPM)
 - [SCP | DeFi playlist by Smart Contract Programmer](https://www.youtube.com/playlist?list=PLO5VPQH6OWdX-Rh7RonjZhOd9pb9zOnHW)
 - [Chainlink | How To Use DeFi with Python (DeFi Quant): Code Along](https://www.youtube.com/watch?v=tCV_4WBMVGA)
+- [The Future of Asset Management Using Smart Contracts & Oracles](https://www.youtube.com/watch?v=7ECeIK5_tXk) ✅
