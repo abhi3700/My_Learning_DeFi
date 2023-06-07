@@ -1,8 +1,6 @@
 # Uniswap
 
-## Versions
-
-### v1
+## v1
 
 ![Uniswap v1 contract overview](../../img/uniswap_v1_contract_overview.png)
 
@@ -31,7 +29,9 @@
 
 ---
 
-### v2
+## v2
+
+### Concepts
 
 - The major drawback with the Uniswap v1 was the “ETH bridging” problem, i.e., the absence of ERC20-ERC20 token pools. This resulted in escalated costs and high slippage when a user wants to swap one ERC20 token.
 - v2 solved the problem by introducing ERC20-ERC20 pools.
@@ -56,9 +56,7 @@
 
 ---
 
-### v3
-
-## Coding
+### Coding
 
 - UniswapV2 contracts are divided into
   - **core contracts**: implements the complete functions of UniswapV2 (creating trading pairs, liquidity supply, trading tokens, price oracles, etc.)
@@ -66,6 +64,38 @@
     - Pair (or Pool) contract
   - **peripheral contracts**: are used to make it more convenient for users to interact with the core contract in a user-friendly way.
 - The price of token w.r.t another token is calculated on-chain within the smart contract ([example](https://github.com/abhi3700/evm_contracts_defiavgprice)), not off-chain.
+
+## v3
+
+### Concepts
+
+**Concentrated Liquidity**:
+
+![](../../img/uniswap_concentrated_liquidity.png)
+
+Uniswap v3 provides this liquidity providing with an added option of most efficient capital utilization. This is done by allowing the liquidity providers to concentrate their liquidity within a price range. This is called concentrated liquidity. Imagine `DAI:USDC` is traded at `0.99:1.01` majority of the times. So, the liquidity providers can concentrate their liquidity within this price range. This will allow them to provide more liquidity with the same amount of capital. This will also allow the traders to trade with less slippage.
+
+Here, `alice` invests `10,000 $` worth of liquidity in a pool throughout the curve whereas, `bob` invests only `1200 $` worth of liquidity in the same pool but in a concentrated manner. This allows `bob` to provide more liquidity with the same amount of capital by distributing the remaining `8800 $` into different price range along the curve. Now, as long as the price of `ETH:DAI` remains within price range: `1500-2500`, both earns same amount of fees. Here, `bob` having invested only `12%` (1200$ out of 10000$) of the capital, earns the same amount of fees as `alice` who invested `100%` of the capital. This is the power of concentrated liquidity. Now, in case of price slippage (imagine the price of 1 ETH is infinite), `bob` just loses `1200 $` whereas `alice` loses everything i.e. `10000 $`.
+
+---
+
+It also allows much more diverse portfolio in a same pool at different price. Some people might go with the most common price range whereas others might go ahead with uncommon price ranges.
+
+![](../../img/uniswap_distributed_liquidity.png)
+
+---
+
+Investing at different price ranges by a single liquidity provider (also called market maker) can be done like this:
+
+![](../../img/uniswap_concentrated_liquidity_2.png)
+
+---
+
+Variable fees per liquidity pool.
+
+The pool creator can set the fess for the pool. This can be done by setting the tick spacing.
+
+![](../../img/uniswap_v3_flexible_fee.png)
 
 ## FAQs
 

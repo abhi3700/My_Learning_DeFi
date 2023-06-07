@@ -20,7 +20,7 @@ Watch [this](https://www.youtube.com/watch?v=kywpm7eDIFk) video for 'Order Book 
 ## DeFi
 
 - DeFi = Blockchain + Finance + Economics
-- Decentralized Finance or DeFi is a digtial revolution that leverages decentralized networks to transform our old & ailing financial system into trustless and transparent protocols that run without any third party custodians or intermiediary.
+- Decentralized Finance or DeFi is a digital revolution that leverages decentralized networks to transform our old & ailing financial system into trustless and transparent protocols that run without any third party custodians or intermediary.
 - Some of the concepts driving these:
   - Yield Farming
   - Crypto Staking
@@ -36,14 +36,14 @@ Watch [this](https://www.youtube.com/watch?v=Xbf-QFjZZ_g) video for 'AMM Intro'.
   - **simple** formula like in Uniswap while
   - Curve, Balancer & others use **complicated** ones.
 - Purpose:
-  - Anyone can trade trustlessly
+  - Anyone can trade in a trustless manner.
   - Anyone can provide fund (also called liquidity) to a liquidity pool. Hence, they can be market maker on exchange. In return, they earn fees for providing liquidity.
 - An AMM is a type of decentralized exchange (DEX) protocol that relies on a mathematical formula to price assets. Instead of using an order book like a traditional exchange, assets are priced according to a pricing algorithm.
-- The basic AMM works as a series of pools of two assets (say, ETH, the foundational currency of the Ethereum blockchain, and DAI, an Ethereum token designed to hold its value against the U.S. dollar). The price offered by the AMM does not reference the external world. In the simplest form, it’s just a function of the ratio of the two assets. So if there were 1 ETH in the pool and 2,000 DAI, 1 DAI would cost 0.0005 ETH and 1 ETH would cost 2,000 DAI.
+- The basic AMM works as a series of pools of two assets (say, ETH, the foundational currency of the Ethereum blockchain, and DAI, an ERC20 token designed to hold its value against the U.S. dollar). The price offered by the AMM does not reference the external world. In the simplest form, it’s just a function of the quantity of the two assets. So if there were 1 ETH in the pool and 2,000 DAI, 1 DAI would cost 0.0005 ETH and 1 ETH would cost 2,000 DAI.
 - History:
-  - The concept of AMM used in Uniswap (constant product market maker) has already been studied for over a decade. Refer [this](./docs/papers/AMM_Theory_Practice.pdf)
+  - The concept of AMM used in Uniswap (constant product market maker) has already been studied for over a decade. [Source](./docs/papers/AMM_Theory_Practice.pdf)
   - It has been used in prediction markets.
-  - Other AMM appoaches:
+  - Other AMM approaches:
     - logarithmic rule used in prediction markets - [Augur v1](https://augur.mystrikingly.com/blog/augur-s-automated-market-maker-the-ls-lmsr) & [Gnosis](https://gnosis-pm-js.readthedocs.io/en/v1.3.0/lmsr-primer.html)
     - Information aggregators based
       - [Bayesian market makers](http://www.eecs.harvard.edu/cs286r/courses/fall12/papers/bmm-ec.pdf)
@@ -51,7 +51,7 @@ Watch [this](https://www.youtube.com/watch?v=Xbf-QFjZZ_g) video for 'AMM Intro'.
 - "constant product market maker" is also called "constant function market makers" (CFMMs).
 - Bonding curve: relationship between price & token supply.
 - CFMMs: relationship between 2 or more tokens.
-- Compound uses non-CFMM because the interest rate is dynamic based on the utilization ration and the goal is not to keep the interest rate constant.
+- Compound uses non-CFMM because the interest rate is dynamic based on the utilization ratio and the goal is not to keep the interest rate constant.
 
 ### CFMM
 
@@ -63,10 +63,10 @@ Watch [this](https://www.youtube.com/watch?v=Xbf-QFjZZ_g) video for 'AMM Intro'.
 - CFMMs are often used for secondary market trading and tend to accurately reflect, as a result of arbitrage, the price of individual assets on reference markets. For example, if the CFMM price is less than the reference market price, arbitrageurs will buy the asset on the CFMM and sell it on an order book-based exchange for a profit.
 - A constant product function forms a hyperbola when plotting two assets, which has a desirable property of always having liquidity as prices approach infinity on both sides of the spectrum.
 
-![CFMM Chart](./img/cfmm_chart.png)
+![CFMM Chart](../img/cfmm_chart.png)
 
 - A constant product market maker, first implemented by Uniswap, satisfies the equation:
-  ![CFMM formula](./img/cfmm_formula.png)
+  ![CFMM formula](../img/cfmm_formula.png)
 
 Where R*α and R*β are reserves of each asset and γ is the transaction fee. Trading any amount of either asset must change the reserves in such a way that, when the fee is zero, the product `R_α * R_β` remains equal to the constant `k`.
 
@@ -76,7 +76,6 @@ Where R*α and R*β are reserves of each asset and γ is the transaction fee. Tr
   - **all-time liquidity**: It can provide liquidity no matter how large the order size is or how small the liquidity pool is. While larger orders tend to suffer from excess slippage, the system never has to worry about running out of liquidity. It will literally always work.
 - Cons:
   - **slippage**: is the difference between the expected price of a trade and the price at which the trade is executed. This can be solved by having a large reserve i.e. large value of constant. In this way, the orders should get bigger and bigger so that the slippage is considerable. large order => larger chance of slippage.
-  - **Impermanent Loss**: the difference b/w the external market price & pool's price. Suppose, there is a pool with tokens - `ETH : DAI` | `10:1000`, then ETH price is 100 USD, but suppose, the reserve is now `8.17: 1224` after some liquidity movement, still the product is `10000`. In the 2nd case, the price is `150 USD`. Hence, the `$50` in profit is lost to the liquidity provider. Naturally, if the price returned to $100 again, everything would rebalance. That is why this phenomenon is known as impermanent loss. Without a doubt, it is one of the most uncomfortable problems of the Uniswap system. Nobody likes to provide liquidity in exchange for losing value.
 
 ```console
 ETH : DAI
@@ -87,13 +86,13 @@ ETH : DAI
 ### Constant Sum Market Makers (CSMM)
 
 - A constant sum market maker is a relatively straightforward implementation of a constant function market maker, satisfying the equation:
-  ![CSMM Formula](./img/csmm_formula.png)
+  ![CSMM Formula](../img/csmm_formula.png)
 
 Where R_i are the reserves of each asset and k is a constant.
 
 - While this function produces “zero slippage”, it does not provide infinite liquidity and thus is likely unfit as a standalone implementation for a decentralized exchange use-case.
-- A constant sum function forms a straight line when plotting two assets, resulting in the equation `x+y=k`.
-  ![CSMM Chart](./img/csmm_chart.png)
+- A constant sum function forms a straight line when plotting two assets, resulting in the equation `x + y = k`.
+  ![CSMM Chart](../img/csmm_chart.png)
 
 ### AMM Formula
 
@@ -105,7 +104,7 @@ x * y = k
 where,
 x is the amount of one token in the liquidity pool
 y is the amount of second token in the liquidity pool
-k is a fixed constant, which is the pool's total liquidity always has to remain the same.
+k is a fixed constant, which is the pool's total liquidity always has to remain the same (during swap)
 
 > NOTE: k changes during investment/withdrawal transactions, NOT trades
 ```
@@ -125,7 +124,7 @@ k is a fixed constant, which is the pool's total liquidity always has to remain 
 - Introduced in Uniswap V3
 - The liquidity provider has the choice to part provide liquidity of the token in a specific price range.
 
-## [Flash Loans](./docs/flashloan.md)
+## [Flash Loans](../protocols/flashloan/README.md)
 
 ## Liquidity Pool
 
